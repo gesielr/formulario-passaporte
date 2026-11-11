@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados para Emissão de Passaporte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen py-8 px-4 text-slate-800">
+  <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+    <div class="mb-6 border-b border-slate-100 pb-4">
+      <h1 class="text-2xl font-bold text-slate-900">Emissão de Passaporte</h1>
+      <p class="text-sm text-slate-500 mt-1">Preencha os campos abaixo. Ao final, seus dados serão organizados para envio direto pelo WhatsApp.</p>
+    </div>
+
+    <form id="passaporteForm" class="space-y-4">
+      <!-- Bloco 1: Dados Pessoais -->
+      <h2 class="text-sm font-semibold text-blue-600 uppercase tracking-wider pt-2">1. Dados Pessoais</h2>
+      
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">Nome Completo *</label>
+        <input type="text" id="nome" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Data de Nascimento *</label>
+          <input type="text" id="nascimento" placeholder="DD/MM/AAAA" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Sexo *</label>
+          <select id="sexo" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white">
+            <option value="">Selecione</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Estado Civil *</label>
+          <input type="text" id="estadoCivil" placeholder="Solteiro(a), Casado(a)..." required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Cidade/UF de Nasc. *</label>
+          <input type="text" id="naturalidade" placeholder="Ex: Florianópolis/SC" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">Nome Completo da Mãe *</label>
+        <input type="text" id="mae" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">Nome Completo do Pai</label>
+        <input type="text" id="pai" placeholder="Em branco se não constar no registro" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <!-- Bloco 2: Documentos -->
+      <h2 class="text-sm font-semibold text-blue-600 uppercase tracking-wider pt-4">2. Documentos</h2>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">CPF *</label>
+          <input type="text" id="cpf" placeholder="000.000.000-00" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">RG ou CNH (Número) *</label>
+          <input type="text" id="rg" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Órgão Expedidor/UF *</label>
+          <input type="text" id="orgaoRg" placeholder="Ex: SSP/SC" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Data Expedição RG *</label>
+          <input type="text" id="dataRg" placeholder="DD/MM/AAAA" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">Já possuiu passaporte anterior? *</label>
+        <select id="passaporteAnterior" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white">
+          <option value="Não">Não, é o primeiro</option>
+          <option value="Sim, tenho e está em mãos">Sim, tenho e levarei no dia</option>
+          <option value="Sim, mas foi roubado/furtado">Sim, mas foi roubado/furtado</option>
+          <option value="Sim, mas foi perdido/extraviado">Sim, mas foi perdido/extraviado</option>
+        </select>
+      </div>
+
+      <!-- Bloco 3: Endereço e Contato -->
+      <h2 class="text-sm font-semibold text-blue-600 uppercase tracking-wider pt-4">3. Endereço e Contato</h2>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">Profissão Atual *</label>
+        <input type="text" id="profissao" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <div class="grid grid-cols-3 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">CEP *</label>
+          <input type="text" id="cep" placeholder="00000-000" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div class="col-span-2">
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Rua / Av. e Número *</label>
+          <input type="text" id="logradouro" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Bairro *</label>
+          <input type="text" id="bairro" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Cidade / UF *</label>
+          <input type="text" id="cidadeUf" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1">E-mail *</label>
+        <input type="email" id="email" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+
+      <div class="pt-4">
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition duration-200 shadow-md">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.202.043.073.043.42-.101.825z"/></svg>
+          Enviar Dados pelo WhatsApp
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // DEFINA SEU WHATSAPP COM DDI (55) + DDD + NÚMERO (Apenas números)
+    const MEU_WHATSAPP = "5548991589495";
+
+    document.getElementById('passaporteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Monta o texto estruturado exatamente na ordem do formulário da Polícia Federal
+      const texto = 
+`*SOLICITAÇÃO DE PASSAPORTE (DADOS)*
+
+*1. DADOS PESSOAIS*
+• Nome: ${document.getElementById('nome').value}
+• Nasc.: ${document.getElementById('nascimento').value}
+• Sexo: ${document.getElementById('sexo').value}
+• Estado Civil: ${document.getElementById('estadoCivil').value}
+• Naturalidade: ${document.getElementById('naturalidade').value}
+• Mãe: ${document.getElementById('mae').value}
+• Pai: ${document.getElementById('pai').value || 'Não informado'}
+
+*2. DOCUMENTAÇÃO*
+• CPF: ${document.getElementById('cpf').value}
+• RG/CNH: ${document.getElementById('rg').value}
+• Órgão/UF: ${document.getElementById('orgaoRg').value}
+• Data Expedição: ${document.getElementById('dataRg').value}
+• Passaporte Anterior: ${document.getElementById('passaporteAnterior').value}
+
+*3. CONTATO & ENDEREÇO*
+• Profissão: ${document.getElementById('profissao').value}
+• E-mail: ${document.getElementById('email').value}
+• Endereço: ${document.getElementById('logradouro').value}
+• Bairro: ${document.getElementById('bairro').value}
+• CEP: ${document.getElementById('cep').value}
+• Cidade/UF: ${document.getElementById('cidadeUf').value}`;
+
+      // Monta o link wa.me e abre no navegador do celular
+      const urlWhats = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(texto)}`;
+      window.location.href = urlWhats;
+    });
+  </script>
+</body>
+</html>
